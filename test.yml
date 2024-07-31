@@ -1,0 +1,12 @@
+config:
+  target: "http://localhost:3001"
+  phases:
+    - duration: 20  # Duration of the test in seconds
+      arrivalRate: 50  # Number of requests per second
+
+scenarios:
+  - flow:
+      - get:
+          url: '/?nbRequests=10'  # Replace with the endpoint you want to test
+          headers:
+            Content-Type: 'application/json'
