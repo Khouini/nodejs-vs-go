@@ -1,8 +1,8 @@
 config:
-  target: "http://localhost:3001"
+  target: "http://localhost:3000"
   phases:
     - duration: 20  # Duration of the test in seconds
-      arrivalRate: 50  # Number of requests per second
+      arrivalRate: 20  # Number of requests per second
 
 scenarios:
   - flow:

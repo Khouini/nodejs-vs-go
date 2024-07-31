@@ -132,9 +132,21 @@ func heavyComputationHandler(w http.ResponseWriter, r *http.Request) {
     json.NewEncoder(w).Encode(response)
 }
 
+
 func helloHandler(w http.ResponseWriter, r *http.Request) {
+    // Get the current timestamp
+    currentTime := time.Now()
+
+    // Add 5 minutes to the current time
+    futureTime := currentTime.Add(5 * time.Minute)
+
+    // Format the timestamps for display
+    currentTimeFormatted := currentTime.Format(time.RFC1123)
+    futureTimeFormatted := futureTime.Format(time.RFC1123)
+
+    // Set response header and write the response
     w.WriteHeader(http.StatusOK)
-    fmt.Fprintln(w, "Hello World!")
+    fmt.Fprintf(w, "Hello World!\nCurrent Time: %s\nFuture Time (after 5 mins): %s", currentTimeFormatted, futureTimeFormatted)
 }
 
 
